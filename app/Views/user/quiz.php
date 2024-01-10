@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
+    <title>
+        <?= $title ?>
+    </title>
     <style>
         .question {
             display: none;
@@ -54,15 +56,12 @@
 
 <body>
 
-    <h2>Ini adalah level <?= $level ?></h2>
+    <h2>Ini adalah level
+        <?= $level ?>
+    </h2>
 
     <?php
     $score = 0;
-    $questions = array(
-        array('question' => 'Pilih gambar yang menunjukkan 1+1?', 'options' => array('image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'), 'correct_index' => 1),
-        array('question' => 'Pilih gambar hewan peliharaan:', 'options' => array('cat.jpg', 'dog.jpg', 'fish.jpg', 'monkey.jpg'), 'correct_index' => 0),
-        array('question' => 'Pilih gambar pemain bola terbaik:', 'options' => array('ronaldo.jpg', 'messi.jpg', 'maradona.jpg', 'zidane.jpg'), 'correct_index' => 2),
-    );
 
     echo '<h2>Quiz Pelihara Hewan</h2>';
     echo '<form method="post" id="quizForm" action="' . base_url('quiz/submit-answer') . '">';
