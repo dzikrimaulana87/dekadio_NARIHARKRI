@@ -1,0 +1,14 @@
+{
+  "soal": {
+    "soal": [
+      "Pilih gambar yang menunjukkan 1+1?",
+      "Pilih gambar hewan peliharaan:",
+      "Pilih gambar pemain bola terbaik:"
+    ]
+  },
+  "jawaban": {
+    "soal1": ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
+    "soal2": ["cat.jpg", "dog.jpg", "fish.jpg", "monkey.jpg"],
+    "soal3": ["ronaldo.jpg", "messi.jpg", "maradona.jpg", "zidane.jpg"]
+  }
+}

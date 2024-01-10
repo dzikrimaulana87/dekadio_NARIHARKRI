@@ -4,77 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
+    <title>
+        <?= $title ?>
+    </title>
     <style>
-        .question {
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
+    .question {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+    }
 
-        .question.show {
-            display: block;
-            opacity: 1;
-        }
+    .question.show {
+        display: block;
+        opacity: 1;
+    }
 
-        .question.hide {
-            opacity: 0;
-        }
+    .question.hide {
+        opacity: 0;
+    }
 
-        .option-image {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
+    .option-image {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
 
-        .option-image.selected {
-            border: 2px solid blue;
-        }
+    .option-image.selected {
+        border: 2px solid blue;
+    }
 
-        .feedback {
-            display: none;
-            margin-top: 10px;
-        }
+    .feedback {
+        display: none;
+        margin-top: 10px;
+    }
 
-        .correct {
-            color: green;
-        }
+    .correct {
+        color: green;
+    }
 
-        .incorrect {
-            color: red;
-        }
+    .incorrect {
+        color: red;
+    }
 
-        .next-link {
-            display: none;
-            margin-top: 10px;
-        }
+    .next-link {
+        display: none;
+        margin-top: 10px;
+    }
     </style>
 </head>
 
 <body>
 
-    <h2>Ini adalah level <?= $level ?></h2>
+    <h2>Ini adalah level
+        <?= $level ?>
+    </h2>
 
     <?php
+    $jsonFile = file_get_contents('public/data/soal.json');
+    $data = json_decode($jsonFile, true);
     $score = 0;
-    $questions = array(
-        array('question' => 'Pilih gambar yang menunjukkan 1+1?', 'options' => array('image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'), 'correct_index' => 1),
-        array('question' => 'Pilih gambar hewan peliharaan:', 'options' => array('cat.jpg', 'dog.jpg', 'fish.jpg', 'monkey.jpg'), 'correct_index' => 0),
-        array('question' => 'Pilih gambar pemain bola terbaik:', 'options' => array('ronaldo.jpg', 'messi.jpg', 'maradona.jpg', 'zidane.jpg'), 'correct_index' => 2),
-    );
-
+    // $questions = array(
+    //     array('question' => 'Pilih gambar yang menunjukkan 1+1?', 'options' => array('image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'), 'correct_index' => 1),
+    //     array('question' => 'Pilih gambar hewan peliharaan:', 'options' => array('cat.jpg', 'dog.jpg', 'fish.jpg', 'monkey.jpg'), 'correct_index' => 0),
+    //     array('question' => 'Pilih gambar pemain bola terbaik:', 'options' => array('ronaldo.jpg', 'messi.jpg', 'maradona.jpg', 'zidane.jpg'), 'correct_index' => 2),
+    // );
+    
     echo '<h2>Quiz Pelihara Hewan</h2>';
     echo '<form method="post" id="quizForm" action="' . base_url('quiz/submit-answer') . '">';
     echo '<div id="questionContainer">';
 
-    for ($i = 0; $i < count($questions); $i++) {
-        echo '<div class="question" id="question_' . $i . '">';
-        echo '<p><strong>Soal ' . ($i + 1) . ':</strong> ' . $questions[$i]['question'] . '</p>';
-        for ($j = 0; $j < count($questions[$i]['options']); $j++) {
-            echo '<img src="' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+    foreach ($data['soal'] as $index => $question) {
+        echo '<div class="question" id="question_' . $index . '">';
+        echo '<p><strong>Soal ' . ($index + 1) . ':</strong> ' . $question . '</p>';
+        foreach ($data['jawaban']['soal' . ($index + 1)] as $optionIndex => $option) {
+            echo '<img src="' . base_url('public/' . $option) . '" alt="Option ' . ($optionIndex + 1) . '" class="option-image" onclick="answerSelected(' . $index . ',' . $optionIndex . ')" id="option_' . $index . '_' . $optionIndex . '">';
         }
-        echo '<div class="feedback" id="feedback_' . $i . '"></div>';
+        echo '<div class="feedback" id="feedback_' . $index . '"></div>';
         echo '</div>';
     }
 
@@ -98,108 +104,109 @@
     </div>
 
     <script>
-        let currentQuestion = 0;
-        let selectedOptions = {};
-        let score = 0;
-        let wrongQuestionIndices = [];
+    let currentQuestion = 0;
+    let selectedOptions = {};
+    let score = 0;
+    let wrongQuestionIndices = [];
 
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('question_0').classList.add('show');
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('question_0').classList.add('show');
+    });
 
-        function answerSelected(questionIndex, optionIndex) {
-            if (!selectedOptions.hasOwnProperty(questionIndex)) {
-                saveSelectedOption(questionIndex, optionIndex);
-                displayFeedback(questionIndex);
-                document.getElementById('option_' + questionIndex + '_' + optionIndex).classList.add('selected');
-                if (questionIndex === <?= count($questions) - 1 ?>) {
-                    document.getElementById('nextLink').style.display = 'none';
-                    document.getElementById('finishLink').style.display = 'block';
-                    showScore();
-                } else {
-                    document.getElementById('nextLink').style.display = 'block';
-                }
-            }
-        }
-
-        function saveSelectedOption(questionIndex, optionIndex) {
-            selectedOptions[questionIndex] = optionIndex;
-            const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
-            const correctAnswer = correctIndex[questionIndex];
-            if (optionIndex !== correctAnswer) {
-                wrongQuestionIndices.push(questionIndex);
-            }
-        }
-
-        function displayFeedback(questionIndex) {
-            const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
-            const userAnswer = selectedOptions[questionIndex];
-            const correctAnswer = correctIndex[questionIndex];
-            const feedbackElement = document.getElementById('feedback_' + questionIndex);
-            feedbackElement.style.display = 'block';
-            if (userAnswer === correctAnswer) {
-                feedbackElement.innerHTML = '<p class="correct">Jawaban Anda benar!</p>';
-                score++;
-            } else {
-                feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar: ' + (correctAnswer + 1) + '</p>';
-            }
-        }
-
-        function nextQuestion() {
-            document.getElementById('question_' + currentQuestion).classList.remove('show');
-            document.getElementById('question_' + currentQuestion).classList.add('hide');
-            currentQuestion++;
-            if (currentQuestion < <?= count($questions) ?>) {
-                document.getElementById('question_' + currentQuestion).classList.remove('hide');
-                document.getElementById('question_' + currentQuestion).classList.add('show');
-                hideFeedback();
+    function answerSelected(questionIndex, optionIndex) {
+        if (!selectedOptions.hasOwnProperty(questionIndex)) {
+            saveSelectedOption(questionIndex, optionIndex);
+            displayFeedback(questionIndex);
+            document.getElementById('option_' + questionIndex + '_' + optionIndex).classList.add('selected');
+            if (questionIndex === <?= count($questions) - 1 ?>) {
                 document.getElementById('nextLink').style.display = 'none';
-                document.getElementById('finishLink').style.display = 'none';
-            } else {
+                document.getElementById('finishLink').style.display = 'block';
                 showScore();
+            } else {
+                document.getElementById('nextLink').style.display = 'block';
             }
         }
+    }
 
-        function hideFeedback() {
-            const feedback = document.getElementById('feedback_' + currentQuestion);
-            feedback.style.display = 'none';
+    function saveSelectedOption(questionIndex, optionIndex) {
+        selectedOptions[questionIndex] = optionIndex;
+        const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
+        const correctAnswer = correctIndex[questionIndex];
+        if (optionIndex !== correctAnswer) {
+            wrongQuestionIndices.push(questionIndex);
         }
+    }
 
-        function showScore() {
-            document.getElementById('score').innerText = score;
-            if (wrongQuestionIndices.length > 0) {
-                const wrongQuestionMessage = 'Indeks Soal yang Salah: ' + wrongQuestionIndices.join(', ');
-                document.getElementById('wrongQuestionMessage').innerText = wrongQuestionMessage;
+    function displayFeedback(questionIndex) {
+        const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
+        const userAnswer = selectedOptions[questionIndex];
+        const correctAnswer = correctIndex[questionIndex];
+        const feedbackElement = document.getElementById('feedback_' + questionIndex);
+        feedbackElement.style.display = 'block';
+        if (userAnswer === correctAnswer) {
+            feedbackElement.innerHTML = '<p class="correct">Jawaban Anda benar!</p>';
+            score++;
+        } else {
+            feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar: ' + (
+                correctAnswer + 1) + '</p>';
+        }
+    }
+
+    function nextQuestion() {
+        document.getElementById('question_' + currentQuestion).classList.remove('show');
+        document.getElementById('question_' + currentQuestion).classList.add('hide');
+        currentQuestion++;
+        if (currentQuestion < <?= count($questions) ?>) {
+            document.getElementById('question_' + currentQuestion).classList.remove('hide');
+            document.getElementById('question_' + currentQuestion).classList.add('show');
+            hideFeedback();
+            document.getElementById('nextLink').style.display = 'none';
+            document.getElementById('finishLink').style.display = 'none';
+        } else {
+            showScore();
+        }
+    }
+
+    function hideFeedback() {
+        const feedback = document.getElementById('feedback_' + currentQuestion);
+        feedback.style.display = 'none';
+    }
+
+    function showScore() {
+        document.getElementById('score').innerText = score;
+        if (wrongQuestionIndices.length > 0) {
+            const wrongQuestionMessage = 'Indeks Soal yang Salah: ' + wrongQuestionIndices.join(', ');
+            document.getElementById('wrongQuestionMessage').innerText = wrongQuestionMessage;
+        }
+        document.getElementById('scoreInput').value = score;
+        document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
+        document.getElementById('scoreContainer').style.display = 'block';
+        document.getElementById('finishLink').style.display = 'block';
+    }
+
+    async function submitForm() {
+        await submitQuiz();
+        document.getElementById('scoreInput').value = score;
+        document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
+        return true;
+    }
+
+    async function submitQuiz() {
+        try {
+            const response = await fetch('<?= base_url('quiz/submit-answer') ?>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(selectedOptions),
+            });
+            if (!response.ok) {
+                throw new Error('Error submitting quiz.');
             }
-            document.getElementById('scoreInput').value = score;
-            document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
-            document.getElementById('scoreContainer').style.display = 'block';
-            document.getElementById('finishLink').style.display = 'block';
+        } catch (error) {
+            alert(error.message);
         }
-
-        async function submitForm() {
-            await submitQuiz();
-            document.getElementById('scoreInput').value = score;
-            document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
-            return true;
-        }
-
-        async function submitQuiz() {
-            try {
-                const response = await fetch('<?= base_url('quiz/submit-answer') ?>', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(selectedOptions),
-                });
-                if (!response.ok) {
-                    throw new Error('Error submitting quiz.');
-                }
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+    }
     </script>
 
 </body>
