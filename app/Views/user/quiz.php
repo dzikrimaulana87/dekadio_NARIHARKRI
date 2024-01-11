@@ -70,9 +70,20 @@
     for ($i = 0; $i < count($questions); $i++) {
         echo '<div class="question" id="question_' . $i . '">';
         echo '<p><strong>Soal ' . ($i + 1) . ':</strong> ' . $questions[$i]['question'] . '</p>';
-        for ($j = 0; $j < count($questions[$i]['options']); $j++) {
-            echo '<img src="' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+
+        // Memeriksa tipe pertanyaan (teks atau gambar)
+        if (is_numeric($questions[$i]['options'][0])) {
+            // Jika opsi jawaban adalah teks
+            for ($j = 0; $j < count($questions[$i]['options']); $j++) {
+                echo '<p onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">' . $questions[$i]['options'][$j] . '</p>';
+            }
+        } else {
+            // Jika opsi jawaban adalah gambar
+            for ($j = 0; $j < count($questions[$i]['options']); $j++) {
+                echo '<img src="' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+            }
         }
+
         echo '<div class="feedback" id="feedback_' . $i . '"></div>';
         echo '</div>';
     }
@@ -84,6 +95,7 @@
 
     <form method="post" action="<?= base_url('quiz/submit-answer') ?>" onsubmit="return submitForm()">
         <input type="hidden" name="score" id="scoreInput" value="0">
+        <input type="hidden" name="level"  value="<?= ($level);?>">
         <input type="hidden" name="questionCount" value="<?= count($questions);?>">
         <input type="hidden" name="wrongQuestionIndex" id="wrongQuestionIndexInput" value="[]">
         <div class="next-link" id="finishLink" style="display:none;">
@@ -141,7 +153,7 @@
                 feedbackElement.innerHTML = '<p class="correct">Jawaban Anda benar!</p>';
                 score++;
             } else {
-                feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar: ' + (correctAnswer + 1) + '</p>';
+                feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar adalah opsi ' + (correctAnswer + 1) + '</p>';
             }
         }
 

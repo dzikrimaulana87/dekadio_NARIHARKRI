@@ -9,7 +9,7 @@ use Kreait\Firebase\ServiceAccount;
 class Quiz extends BaseController
 {
 
-    
+
     public function __construct()
     {
         $this->session = session();
@@ -26,18 +26,19 @@ class Quiz extends BaseController
         session();
         $this->userLevel = $this->session->get('user_level') ?? 1;
 
-        $questions = $this->readData();
+        $questions = $this->readData($level - 1);
+        // dd($questions);
 
         if ($this->userLevel >= $level) {
 
-            if (isset($questions[$level - 1])) {
-                $levelQuestions = $questions[$level - 1]['questions'];
+            if (isset($questions)) {
+                $levelQuestions = $questions['questions'];
                 $quizDetail = [
                     'title' => 'quiz level ' . $level,
                     'level' => $level,
                     'questions' => $levelQuestions,
                 ];
-
+                // return 'tes array';
                 return view('user/quiz', $quizDetail);
             } else {
                 return 'Level not found.';
@@ -51,28 +52,28 @@ class Quiz extends BaseController
     {
         if ($this->request->getMethod() === 'post') {
             $rightAnswer = $this->request->getPost('score');
+            $currentLevel = $this->request->getPost('level');
             $totalQuestion = $this->request->getPost('questionCount');
             $wrongQuestionIndex = $this->request->getPost('wrongQuestionIndex');
             $score = $rightAnswer / $totalQuestion;
-            var_dump($totalQuestion);
-            if ($score >= 0.8) {
-                $this->session->set('user_level', $this->userLevel + 1);
+
+            if ($score >= 0.8 && $currentLevel >= $this->session->get('user_level')) {
+                $this->session->set('user_level', ($this->session->get('user_level')) + 1);
             }
 
             $assignmentData = [
                 'score' => $score * 100 . '%',
                 'wrongQuestionIndex' => $wrongQuestionIndex
             ];
-
-            dd($assignmentData);
-
+            return redirect()->to('/assignment')->with('assignmentData', $assignmentData);
         } else {
             $response = ['status' => 'error', 'message' => 'Invalid Request'];
             return $this->response->setJSON($response);
         }
     }
 
-    public function readData()
+
+    public function readData($level)
     {
         // Konfigurasi Firebase
         $firebaseUrl = 'https://dekadio-default-rtdb.asia-southeast1.firebasedatabase.app/';
@@ -83,8 +84,13 @@ class Quiz extends BaseController
         $database = $factory->createDatabase();
 
         // Mendapatkan referensi ke data di Firebase Realtime Database
-        $reference = $database->getReference('levels');
+        $reference = $database->getReference('levels/' . $level);
         $data = $reference->getValue();
         return $data;
+    }
+
+    public function assignmentPage()
+    {
+        return view('user/assignment');
     }
 }

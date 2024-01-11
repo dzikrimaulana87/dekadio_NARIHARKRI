@@ -12,3 +12,4 @@ $routes->post('/quiz/submit-answer', 'Quiz::submitAnswer');
 
 
 $routes->get('/tes','Quiz::readData');
+$routes->get('/assignment', 'Quiz::assignmentPage');
