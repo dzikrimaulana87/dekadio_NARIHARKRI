@@ -63,7 +63,7 @@
     <?php
     $score = 0;
 
-    echo '<h2>Quiz Pelihara Hewan</h2>';
+    echo '<h2Dekadio Quiz</h2>';
     echo '<form method="post" id="quizForm" action="' . base_url('quiz/submit-answer') . '">';
     echo '<div id="questionContainer">';
 
@@ -84,6 +84,7 @@
 
     <form method="post" action="<?= base_url('quiz/submit-answer') ?>" onsubmit="return submitForm()">
         <input type="hidden" name="score" id="scoreInput" value="0">
+        <input type="hidden" name="questionCount" value="<?= count($questions);?>">
         <input type="hidden" name="wrongQuestionIndex" id="wrongQuestionIndexInput" value="[]">
         <div class="next-link" id="finishLink" style="display:none;">
             <button type="submit">Selesai</button>
@@ -177,28 +178,12 @@
         }
 
         async function submitForm() {
-            await submitQuiz();
             document.getElementById('scoreInput').value = score;
             document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
             return true;
         }
 
-        async function submitQuiz() {
-            try {
-                const response = await fetch('<?= base_url('quiz/submit-answer') ?>', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(selectedOptions),
-                });
-                if (!response.ok) {
-                    throw new Error('Error submitting quiz.');
-                }
-            } catch (error) {
-                alert(error.message);
-            }
-        }
+
     </script>
 
 </body>

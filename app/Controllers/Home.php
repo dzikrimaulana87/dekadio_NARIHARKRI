@@ -11,6 +11,7 @@ class Home extends BaseController
 
     public function levelPage(): string
     {
+        
         return view('user/level_page');
     }
 }

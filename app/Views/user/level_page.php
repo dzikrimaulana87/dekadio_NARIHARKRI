@@ -6,9 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+    $session = session();
+
+    $userLevel = $session->get('user_level');
+    ?>
+    <h3>Level: <?= $userLevel?></h3>
     <h2>Pilih Level</h2>
     <?php
-    //cari di db soal, total soal dengan level unique
+    $userLevel = 1;
     $totalLevel = 12;
     for( $i = 1; $i < $totalLevel; $i++):
     ?>
