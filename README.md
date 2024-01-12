@@ -33,16 +33,13 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
     cp env.example .env
     ```
 
-5. Update the `.env` file with your database configuration and other settings.
-
-
-6. Serve the application:
+5. Serve the application:
 
     ```bash
     php spark serve
     ```
 
-7. Visit `http://localhost:8080` in your browser to access Dekadio.
+6. Visit `http://localhost:8080` in your browser to access Dekadio.
 
 ## Usage
 
