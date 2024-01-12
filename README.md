@@ -6,7 +6,6 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 
 - PHP 7.2.5 or newer
 - Composer
-- MySQL or any compatible database system
 
 ## Installation
 
@@ -36,19 +35,14 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 
 5. Update the `.env` file with your database configuration and other settings.
 
-6. Run the database migrations:
 
-    ```bash
-    php spark migrate
-    ```
-
-7. Serve the application:
+6. Serve the application:
 
     ```bash
     php spark serve
     ```
 
-8. Visit `http://localhost:8080` in your browser to access Dekadio.
+7. Visit `http://localhost:8080` in your browser to access Dekadio.
 
 ## Usage
 
