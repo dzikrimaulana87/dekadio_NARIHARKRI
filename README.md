@@ -20,13 +20,13 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/dekadio.git
+    git clone https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd dekadio
+    cd dekadio_NARIHARKRI
     ```
 
 3. Install dependencies using Composer:
