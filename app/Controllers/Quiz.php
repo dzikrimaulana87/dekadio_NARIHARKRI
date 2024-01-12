@@ -14,6 +14,7 @@ class Quiz extends BaseController
     {
         $this->session = session();
 
+
     }
 
 
@@ -24,7 +25,8 @@ class Quiz extends BaseController
     public function quizViewer($level): string
     {
         session();
-        $this->userLevel = $this->session->get('user_level') ?? 1;
+
+        
 
         $questions = $this->readData($level - 1);
         // dd($questions);
@@ -50,6 +52,10 @@ class Quiz extends BaseController
 
     public function submitAnswer()
     {
+        if ($this->session->get('user_level') == null) {
+            $userLevel = 1;
+            $this->session->set('user_level', $userLevel);
+        }
         if ($this->request->getMethod() === 'post') {
             $rightAnswer = $this->request->getPost('score');
             $currentLevel = $this->request->getPost('level');
