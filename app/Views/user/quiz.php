@@ -122,11 +122,6 @@
             </div>
         </form>
 
-        <div id="scoreContainer" style="display: none;">
-            <h3>Skor Anda:</h3>
-            <p id="score"></p>
-            <p id="wrongQuestionMessage"></p>
-        </div>
     </div>
 
 

@@ -54,7 +54,8 @@ class Quiz extends BaseController
             $rightAnswer = $this->request->getPost('score');
             $currentLevel = $this->request->getPost('level');
             $totalQuestion = $this->request->getPost('questionCount');
-            $wrongQuestionIndex = $this->request->getPost('wrongQuestionIndex');
+            $wrongQuestionIndexj = $this->request->getPost('wrongQuestionIndex');
+            $wrongQuestionIndex = json_decode($wrongQuestionIndexj, true);
             $score = $rightAnswer / $totalQuestion;
 
             if ($score >= 0.8 && $currentLevel >= $this->session->get('user_level')) {
@@ -62,10 +63,11 @@ class Quiz extends BaseController
             }
 
             $assignmentData = [
-                'score' => $score * 100 . '%',
-                'wrongQuestionIndex' => $wrongQuestionIndex
+                'score' => $score * 100,
+                'wrongQuestionIndex' => $wrongQuestionIndex,
+                'userLevel' => $this->session->get('user_level')
             ];
-            return redirect()->to('/assignment')->with('assignmentData', $assignmentData);
+            return view('/user/assignment', $assignmentData);
         } else {
             $response = ['status' => 'error', 'message' => 'Invalid Request'];
             return $this->response->setJSON($response);
