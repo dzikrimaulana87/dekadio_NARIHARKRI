@@ -1,3 +1,71 @@
+# Dekadio - Web-based Sign Language Learning Platform
+
+Dekadio is a web-based platform designed to facilitate sign language learning using a gamified approach. This project is built on the CodeIgniter 4 framework.
+
+## System Requirements
+
+- PHP 7.2.5 or newer
+- Composer
+- MySQL or any compatible database system
+
+## Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/dekadio.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd dekadio
+    ```
+
+3. Install dependencies using Composer:
+
+    ```bash
+    composer install
+    ```
+
+4. Copy the `.env` file:
+
+    ```bash
+    cp env.example .env
+    ```
+
+5. Update the `.env` file with your database configuration and other settings.
+
+6. Run the database migrations:
+
+    ```bash
+    php spark migrate
+    ```
+
+7. Serve the application:
+
+    ```bash
+    php spark serve
+    ```
+
+8. Visit `http://localhost:8080` in your browser to access Dekadio.
+
+## Usage
+
+- Register and log in to access the learning materials.
+- Complete quizzes to advance to higher levels.
+- Enjoy a gamified learning experience tailored for sign language comprehension.
+
+## Contributing
+
+If you'd like to contribute to Dekadio, please fork the repository, create a new branch, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
