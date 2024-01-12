@@ -69,7 +69,7 @@
                 </a>
             <?php endfor; ?>
         </div>
-
+        <a href="<?= base_url('/') ?>">Kembali ke halaman pertama</a>
     </div>
 </body>
 

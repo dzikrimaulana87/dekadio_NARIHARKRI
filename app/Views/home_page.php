@@ -16,6 +16,8 @@
 
     .container {
         width: max-content;
+        display: flex;
+        gap: 5px;
     }
 
     a {
@@ -32,6 +34,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     button {
@@ -42,9 +45,19 @@
 
 <body>
     <div class="container">
+        <a href="<?= base_url('/modul-page') ?>">
+            <div class="wrap-quiz">
+                <p>Modul Pembelajaran</p>
+            </div>
+        </a>
         <a href="<?= base_url('/level-page'); ?>">
             <div class="wrap-quiz">
                 <p>Quiz</p>
+            </div>
+        </a>
+        <a href="<?= base_url('/vid-page'); ?>">
+            <div class="wrap-quiz">
+                <p>Video Pembelajaran</p>
             </div>
         </a>
     </div>
