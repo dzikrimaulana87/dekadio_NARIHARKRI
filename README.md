@@ -20,13 +20,13 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/dekadio.git
+    git clone https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd dekadio
+    cd dekadio_NARIHARKRI
     ```
 
 3. Install dependencies using Composer:
@@ -48,6 +48,25 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
     ```
 
 6. Visit `http://localhost:8080` in your browser to access Dekadio.
+
+## Screenshot Website
+1. Home Page
+![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/01b07068-fed3-4200-aa52-f703ac351010)
+2. Modul Pembelajaran
+![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/7efcbba5-654e-4f30-abe3-f36e8671cc9f)
+3. Quiz
+ - Level Page
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/11e858d4-d6a5-4e73-b936-125ffcbbb736)
+ - Quiz question
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c2e8f40c-6e3d-40b9-8464-585f461a58da)
+ - If the answer is correct
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/b2488fb5-ddb3-48d4-92e6-b150673e6c31)
+ - If the answer is incorrect
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/eb9fb7a2-877a-4ffa-9410-ed3b576a92ec)
+ - Feedback
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/974f8305-1674-4ec5-baa7-c1fa008f70b2)
+4. Video Pembelajaran
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0db43b00-12f0-46fb-a73d-f1a0d69b5caf)
 
 ## Usage
 
