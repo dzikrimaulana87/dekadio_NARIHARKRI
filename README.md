@@ -6,6 +6,8 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 
 **Attention**: For the time being, the only feature available is the *quiz* feature. User authentication is not yet implemented, and developers currently still use cache/session for session management. Please note that this is a development version and some features may not be fully functional yet.
 
+**Important Note**: All questions have not been implemented in real-time. The correct answer for each question is always the first option.
+
 ## System Requirements
 
 - PHP 7.2.5 or newer
