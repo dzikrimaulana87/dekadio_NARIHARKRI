@@ -8,71 +8,81 @@
         <?= $title ?>
     </title>
     <style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .container {
-        display: flex;
-        border: solid black 1px;
-        border-radius: 20px;
-        width: 500px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding-bottom: 5px;
-    }
+        .container {
+            display: flex;
+            border: solid black 1px;
+            border-radius: 20px;
+            width: 500px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 5px;
+        }
 
-    .question {
-        display: none;
-        transition: opacity 0.5s ease-in-out;
-    }
+        .question {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-    .question.show {
-        display: block;
-        opacity: 1;
-    }
+        .question.show {
+            display: block;
+            opacity: 1;
+        }
 
-    .question.hide {
-        opacity: 0;
-    }
+        .question.hide {
+            opacity: 0;
+        }
 
-    .option-image {
-        width: 100px;
-        height: auto;
-        display: block;
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
+        .option-image {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
 
-    .option-image.selected {
-        border: 2px solid blue;
-    }
+        .option-image.selected {
+            border: 2px solid blue;
+        }
 
-    .feedback {
-        display: none;
-        margin-top: 10px;
-    }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+        }
 
-    .correct {
-        color: green;
-    }
+        .correct {
+            color: green;
+        }
 
-    .incorrect {
-        color: red;
-    }
+        .incorrect {
+            color: red;
+        }
 
-    .next-link {
-        display: none;
-        margin-top: 10px;
-    }
+        .next-link {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .question p,
+        .option-image {
+            display: inline-block;
+            margin-right: 10px;
+            transition: none;
+        }
     </style>
 </head>
 
 <body>
+
+
+
     <div class="container">
 
         <h2>Ini adalah level
@@ -99,7 +109,7 @@
             } else {
                 // Jika opsi jawaban adalah gambar
                 for ($j = 0; $j < count($questions[$i]['options']); $j++) {
-                    echo '<img src="' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+                    echo '<img src="/sample-img/' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
                 }
             }
 
@@ -121,95 +131,111 @@
                 <button type="submit">Selesai</button>
             </div>
         </form>
+
+        <div id="loading" style="display: none;">
+            Loading...
+        </div>
     </div>
 
 
     <script>
-    let currentQuestion = 0;
-    let selectedOptions = {};
-    let score = 0;
-    let wrongQuestionIndices = [];
+        let currentQuestion = 0;
+        let selectedOptions = {};
+        let score = 0;
+        let wrongQuestionIndices = [];
 
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('question_0').classList.add('show');
-    });
+        document.addEventListener('DOMContentLoaded', function () {
+            showLoading();
+            document.getElementById('question_0').classList.add('show');
+            hideLoading();
+        });
 
-    function answerSelected(questionIndex, optionIndex) {
-        if (!selectedOptions.hasOwnProperty(questionIndex)) {
-            saveSelectedOption(questionIndex, optionIndex);
-            displayFeedback(questionIndex);
-            document.getElementById('option_' + questionIndex + '_' + optionIndex).classList.add('selected');
-            if (questionIndex === <?= count($questions) - 1 ?>) {
-                document.getElementById('nextLink').style.display = 'none';
-                document.getElementById('finishLink').style.display = 'block';
-                showScore();
-            } else {
-                document.getElementById('nextLink').style.display = 'block';
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function answerSelected(questionIndex, optionIndex) {
+            if (!selectedOptions.hasOwnProperty(questionIndex)) {
+                saveSelectedOption(questionIndex, optionIndex);
+                displayFeedback(questionIndex);
+                document.getElementById('option_' + questionIndex + '_' + optionIndex).classList.add('selected');
+                if (questionIndex === <?= count($questions) - 1 ?>) {
+                    document.getElementById('nextLink').style.display = 'none';
+                    document.getElementById('finishLink').style.display = 'block';
+                    showScore();
+                } else {
+                    document.getElementById('nextLink').style.display = 'block';
+                }
             }
         }
-    }
 
-    function saveSelectedOption(questionIndex, optionIndex) {
-        selectedOptions[questionIndex] = optionIndex;
-        const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
-        const correctAnswer = correctIndex[questionIndex];
-        if (optionIndex !== correctAnswer) {
-            wrongQuestionIndices.push(questionIndex);
+
+        function saveSelectedOption(questionIndex, optionIndex) {
+            selectedOptions[questionIndex] = optionIndex;
+            const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
+            const correctAnswer = correctIndex[questionIndex];
+            if (optionIndex !== correctAnswer) {
+                wrongQuestionIndices.push(questionIndex);
+            }
         }
-    }
 
-    function displayFeedback(questionIndex) {
-        const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
-        const userAnswer = selectedOptions[questionIndex];
-        const correctAnswer = correctIndex[questionIndex];
-        const feedbackElement = document.getElementById('feedback_' + questionIndex);
-        feedbackElement.style.display = 'block';
-        if (userAnswer === correctAnswer) {
-            feedbackElement.innerHTML = '<p class="correct">Jawaban Anda benar!</p>';
-            score++;
-        } else {
-            feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar adalah opsi ' + (
-                correctAnswer + 1) + '</p>';
+        function displayFeedback(questionIndex) {
+            const correctIndex = <?= json_encode(array_column($questions, 'correct_index')) ?>;
+            const userAnswer = selectedOptions[questionIndex];
+            const correctAnswer = correctIndex[questionIndex];
+            const feedbackElement = document.getElementById('feedback_' + questionIndex);
+            feedbackElement.style.display = 'block';
+            if (userAnswer === correctAnswer) {
+                feedbackElement.innerHTML = '<p class="correct">Jawaban Anda benar!</p>';
+                score++;
+            } else {
+                feedbackElement.innerHTML = '<p class="incorrect">Jawaban Anda salah. Jawaban yang benar adalah opsi ' + (
+                    correctAnswer + 1) + '</p>';
+            }
         }
-    }
 
-    function nextQuestion() {
-        document.getElementById('question_' + currentQuestion).classList.remove('show');
-        document.getElementById('question_' + currentQuestion).classList.add('hide');
-        currentQuestion++;
-        if (currentQuestion < <?= count($questions) ?>) {
-            document.getElementById('question_' + currentQuestion).classList.remove('hide');
-            document.getElementById('question_' + currentQuestion).classList.add('show');
-            hideFeedback();
-            document.getElementById('nextLink').style.display = 'none';
-            document.getElementById('finishLink').style.display = 'none';
-        } else {
-            showScore();
+        function nextQuestion() {
+            document.getElementById('question_' + currentQuestion).classList.remove('show');
+            document.getElementById('question_' + currentQuestion).classList.add('hide');
+            currentQuestion++;
+            if (currentQuestion < <?= count($questions) ?>) {
+                document.getElementById('question_' + currentQuestion).classList.remove('hide');
+                document.getElementById('question_' + currentQuestion).classList.add('show');
+                hideFeedback();
+                document.getElementById('nextLink').style.display = 'none';
+                document.getElementById('finishLink').style.display = 'none';
+            } else {
+                showScore();
+            }
         }
-    }
 
-    function hideFeedback() {
-        const feedback = document.getElementById('feedback_' + currentQuestion);
-        feedback.style.display = 'none';
-    }
-
-    function showScore() {
-        document.getElementById('score').innerText = score;
-        if (wrongQuestionIndices.length > 0) {
-            const wrongQuestionMessage = 'Indeks Soal yang Salah: ' + wrongQuestionIndices.join(', ');
-            document.getElementById('wrongQuestionMessage').innerText = wrongQuestionMessage;
+        function hideFeedback() {
+            const feedback = document.getElementById('feedback_' + currentQuestion);
+            feedback.style.display = 'none';
         }
-        document.getElementById('scoreInput').value = score;
-        document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
-        document.getElementById('scoreContainer').style.display = 'block';
-        document.getElementById('finishLink').style.display = 'block';
-    }
 
-    async function submitForm() {
-        document.getElementById('scoreInput').value = score;
-        document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
-        return true;
-    }
+        function showScore() {
+            document.getElementById('score').innerText = score;
+            if (wrongQuestionIndices.length > 0) {
+                const wrongQuestionMessage = 'Indeks Soal yang Salah: ' + wrongQuestionIndices.join(', ');
+                document.getElementById('wrongQuestionMessage').innerText = wrongQuestionMessage;
+            }
+            document.getElementById('scoreInput').value = score;
+            document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
+            document.getElementById('scoreContainer').style.display = 'block';
+            document.getElementById('finishLink').style.display = 'block';
+        }
+
+        async function submitForm() {
+            document.getElementById('scoreInput').value = score;
+            document.getElementById('wrongQuestionIndexInput').value = JSON.stringify(wrongQuestionIndices);
+            return true;
+        }
     </script>
 
 </body>
