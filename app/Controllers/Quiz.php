@@ -13,6 +13,10 @@ class Quiz extends BaseController
     public function __construct()
     {
         $this->session = session();
+        if ($this->session->get('user_level') == null) {
+            $userLevel = 1;
+            $this->session->set('user_level', $userLevel);
+        }
 
 
     }
@@ -31,7 +35,7 @@ class Quiz extends BaseController
         $questions = $this->readData($level - 1);
         // dd($questions);
 
-        if ($this->userLevel >= $level) {
+        if ($this->session->get('user_level') >= $level) {
 
             if (isset($questions)) {
                 $levelQuestions = $questions['questions'];
@@ -52,10 +56,7 @@ class Quiz extends BaseController
 
     public function submitAnswer()
     {
-        if ($this->session->get('user_level') == null) {
-            $userLevel = 1;
-            $this->session->set('user_level', $userLevel);
-        }
+        
         if ($this->request->getMethod() === 'post') {
             $rightAnswer = $this->request->getPost('score');
             $currentLevel = $this->request->getPost('level');
