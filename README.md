@@ -2,6 +2,15 @@
 
 Dekadio is a web-based platform designed to facilitate sign language learning using a gamified approach. This project is built on the CodeIgniter 4 framework.
 
+:warning: *Configuration* <br>
+
+please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.json** file with your own firebase configuration
+
+*json for firebase realtime database:*
+
+[JSON](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/blob/main/dekadio-default-rtdb-export%20(1).json)
+
+
 :warning: *Warning*
 
 **Attention**: For the time being, the only feature available is the *quiz* feature. User authentication is not yet implemented, and developers currently still use cache/session for session management. Please note that this is a development version and some features may not be fully functional yet.
