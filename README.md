@@ -80,7 +80,7 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
 
 6. Visit `http://localhost:8080` in your browser to access Dekadio.
 
-## Screenshot Website
+## Website screenshots
 1. Home Page
 ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/01b07068-fed3-4200-aa52-f703ac351010)
 2. Modul Pembelajaran
