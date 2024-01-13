@@ -2,6 +2,37 @@
 
 Dekadio is a web-based platform designed to facilitate sign language learning using a gamified approach. This project is built on the CodeIgniter 4 framework.
 
+This web-based sign language learning platform aims to provide quality and equitable access to sign language education for the wider community, particularly for our deaf and speech-impaired peers. The platform employs gamification strategies to make sign language learning more enjoyable and engaging. The gamification strategies include:
+
+Educational Games: Utilizing educational games to teach the fundamentals of sign language, covering aspects such as letters, words, and sentences.
+
+Achievements and Rewards: Users will receive achievements and rewards to enhance learning motivation and provide recognition for their progress.
+
+Competitions: Periodic competitions will be organized to encourage users to enhance their sign language proficiency.
+
+The goal is to create an inclusive and interactive learning experience that contributes to making sign language education accessible to a broader audience.
+
+# contributors
+Hacker<br>
+Dzikri Maulana, 
+Nadindra Maulana Aziz
+
+
+Hipster<br>
+Muhammad Hanif
+
+Hustler<br>
+Muhammad Rizqi Fadhilah
+
+# Configuration <br>
+
+please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.json** file with your own firebase configuration
+
+*json for firebase realtime database:*
+
+[JSON](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/blob/main/dekadio-default-rtdb-export%20(1).json)
+
+
 :warning: *Warning*
 
 **Attention**: For the time being, the only feature available is the *quiz* feature. User authentication is not yet implemented, and developers currently still use cache/session for session management. Please note that this is a development version and some features may not be fully functional yet.
@@ -49,7 +80,7 @@ Dekadio is a web-based platform designed to facilitate sign language learning us
 
 6. Visit `http://localhost:8080` in your browser to access Dekadio.
 
-## Screenshot Website
+## Website screenshots
 1. Home Page
 ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/01b07068-fed3-4200-aa52-f703ac351010)
 2. Modul Pembelajaran
