@@ -82,7 +82,7 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
 
 ## Website screenshots
 1. Home Page
-![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/01b07068-fed3-4200-aa52-f703ac351010)
+![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a74809e3-6de3-4069-9a50-3fefaea3c41d)
 2. Modul Pembelajaran
 ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/7efcbba5-654e-4f30-abe3-f36e8671cc9f)
 3. Quiz
