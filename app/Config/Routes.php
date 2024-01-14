@@ -15,3 +15,14 @@ $routes->post('/quiz/submit-answer', 'Quiz::submitAnswer');
 
 $routes->get('/tes', 'Quiz::readData');
 $routes->get('/assignment', 'Quiz::assignmentPage');
+
+$routes->get('/login', 'Authentication::loginPage');
+$routes->post('/login-action', 'Authentication::login');
+
+
+$routes->get('/register', 'Authentication::registerPage');
+$routes->post('/register-action', 'Authentication::register');
+
+$routes->get('/reset-password', 'Authentication::resetPassword');
+$routes->post('/reset-password-action', 'Authentication::sendResetLink');
+

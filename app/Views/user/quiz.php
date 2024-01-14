@@ -109,7 +109,7 @@
             } else {
                 // Jika opsi jawaban adalah gambar
                 for ($j = 0; $j < count($questions[$i]['options']); $j++) {
-                    echo '<img src="/sample-img/' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+                    echo '<img src="gs://dekadio.appspot.com/quiz/option/' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
                 }
             }
 
