@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="sidebar-text">
+            <a href="<?=base_url('/leaderboard')?>" class="sidebar-text">
                 <div class="d-flex align-items-center wrap-text text-center mb-3">
                     <span class="material-symbols-outlined w-25" style="color: yellow;">
                         leaderboard
@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="sidebar-text">
+            <a href="<?=base_url('/profile');?>" class="sidebar-text">
                 <div class="d-flex align-items-center wrap-text text-center mb-3">
                     <span class="material-symbols-outlined w-25" style="color: violet;">
                         face_3
@@ -115,6 +115,8 @@
                 </div>
             </a>
         </div>
+
+        <a href="<?= base_url('/logout')?>">Logout</a>
     </div>
     <div class="container-fluid">
         <nav

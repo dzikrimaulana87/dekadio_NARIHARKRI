@@ -9,6 +9,14 @@ class Quiz extends BaseController
 {
 
 
+
+    //Sementara selagi autentifikasi belum dibuat
+    protected $userLevel = 1;
+    protected $session;
+    protected $auth;
+    protected $database;
+
+
     public function __construct()
     {
         $this->session = session();
@@ -17,19 +25,25 @@ class Quiz extends BaseController
             $this->session->set('user_level', $userLevel);
         }
 
+        $firebaseUrl = 'https://dekadio-default-rtdb.asia-southeast1.firebasedatabase.app/';
+        $serviceAccount = __DIR__ . DIRECTORY_SEPARATOR . 'dekadio-firebase-adminsdk-env38-e696477d86.json';
+        $factory = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri($firebaseUrl);
+
+        try {
+            $this->auth = $factory->createAuth();
+        } catch (\Exception $e) {
+            die('Firebase Authentication initialization error: ' . $e->getMessage());
+        }
+
+        $this->database = $factory->createDatabase();
+
 
     }
 
-
-    //Sementara selagi autentifikasi belum dibuat
-    protected $userLevel = 1;
-    protected $session;
-
     public function quizViewer($level): string
     {
-        session();
-
-        
 
         $questions = $this->readData($level - 1);
         // dd($questions);
@@ -55,7 +69,7 @@ class Quiz extends BaseController
 
     public function submitAnswer()
     {
-        
+
         if ($this->request->getMethod() === 'post') {
             $rightAnswer = $this->request->getPost('score');
             $currentLevel = $this->request->getPost('level');
@@ -65,7 +79,13 @@ class Quiz extends BaseController
             $score = $rightAnswer / $totalQuestion;
 
             if ($score >= 0.8 && $currentLevel >= $this->session->get('user_level')) {
-                $this->session->set('user_level', ($this->session->get('user_level')) + 1);
+                
+                $updatedLevel = $this->session->get('user_level') + 1;
+                $this->updateLevelInFirebase($updatedLevel);
+                $this->session->set('user_level', $updatedLevel);
+
+                
+
             }
 
             $assignmentData = [
@@ -80,19 +100,24 @@ class Quiz extends BaseController
         }
     }
 
+    public function updateLevelInFirebase($newLevel)
+    {
+        $userId = $this->session->get('user_data')['localId'];
+
+        // Ubahlah path sesuai dengan struktur database Anda
+        $reference = $this->database->getReference('users/' . $userId . '/profile');
+
+        // Update level pengguna di Firebase Realtime Database
+        $reference->update([
+            'level' => $newLevel,
+        ]);
+    }
+
+
 
     public function readData($level)
     {
-        // Konfigurasi Firebase
-        $firebaseUrl = 'https://dekadio-default-rtdb.asia-southeast1.firebasedatabase.app/';
-        $factory = (new Factory)
-            ->withServiceAccount(__DIR__ . '\dekadio-firebase-adminsdk-env38-e696477d86.json')
-            ->withDatabaseUri($firebaseUrl);
-
-        $database = $factory->createDatabase();
-
-        // Mendapatkan referensi ke data di Firebase Realtime Database
-        $reference = $database->getReference('levels/' . $level);
+        $reference = $this->database->getReference('levels/' . $level);
         $data = $reference->getValue();
         return $data;
     }

@@ -8,9 +8,11 @@ class Authentication extends BaseController
 {
     protected $auth;
     protected $database;
+    protected $session;
 
     public function __construct()
     {
+        $this->session = session();
         $firebaseUrl = 'https://dekadio-default-rtdb.asia-southeast1.firebasedatabase.app/';
         $serviceAccount = __DIR__ . DIRECTORY_SEPARATOR . 'dekadio-firebase-adminsdk-env38-e696477d86.json';
         $factory = (new Factory)
@@ -32,7 +34,6 @@ class Authentication extends BaseController
         return view('user/authentication/register');
     }
 
-    // Controller
     public function register()
     {
         $validation = \Config\Services::validation();
@@ -69,29 +70,19 @@ class Authentication extends BaseController
     protected function addUserDataToDatabase($userId, $nama)
     {
         echo "succes memanggil adduser";
-        
-        // Mendapatkan data pengguna dari formulir atau sumber lainnya
         $userData = [
             'full_name' => $nama,
             'level' => '1'
         ];
-    
+
         try {
-            // Membuat node dengan UID di Realtime Database
             $this->database->getReference('users/' . $userId)->set([]);
-    
-            // Menambahkan data pengguna ke Realtime Database
             $this->database->getReference('users/' . $userId . '/profile')->update($userData);
         } catch (\Exception $e) {
-            // Cetak pesan kesalahan
             echo 'Error: ' . $e->getMessage();
         }
     }
-    
 
-
-
-    // Controller
 
     public function loginPage()
     {
@@ -116,9 +107,29 @@ class Authentication extends BaseController
                 try {
                     $user = $this->auth->signInWithEmailAndPassword($email, $password);
 
-                    var_dump($user);
+                    $idToken = $user->idToken();
+                    $email = $user->data()['email'];
 
-                    return redirect()->to('/level-page');
+                    // Ambil UID pengguna
+                    $userId = $user->data()['localId'];
+                    $reference = $this->database->getReference('users/' . $userId);
+                    $snapshot = $reference->getSnapshot();
+
+                    if ($snapshot->exists()) {
+                        $userDataFromDatabase = $snapshot->getValue();
+                        $userDataFromDatabase['email'] = $email;
+                        $userDataFromDatabase['localId'] = $userId;
+
+
+                        $this->session->set('user_level', $userDataFromDatabase['profile']['level']);
+                        $this->session->set('user_data', $userDataFromDatabase);
+                    }
+
+
+                    // Set sesi untuk ID token
+                    $this->session->set('user_token', $idToken);
+
+                    return redirect()->to('/');
                 } catch (\Exception $e) {
                     return view('user/authentication/login', ['validation' => $validation, 'error' => 'Invalid Login Credential']);
                 }
@@ -127,6 +138,7 @@ class Authentication extends BaseController
 
         return view('user/authentication/login');
     }
+
 
     public function resetPassword()
     {
@@ -160,4 +172,13 @@ class Authentication extends BaseController
 
         return view('reset_password');
     }
+
+    public function logout()
+    {
+        $this->session->destroy();
+
+        return redirect()->to('/login');
+    }
+
+
 }
