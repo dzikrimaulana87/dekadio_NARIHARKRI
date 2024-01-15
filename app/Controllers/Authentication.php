@@ -99,7 +99,7 @@ class Authentication extends BaseController
             ];
 
             if (!$this->validate($rules)) {
-                return view('/', ['validation' => $validation]);
+                return view('/login', ['validation' => $validation]);
             } else {
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
