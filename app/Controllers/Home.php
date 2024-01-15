@@ -47,6 +47,7 @@ class Home extends BaseController
             return redirect()->to('/login');
         }
         $userData = $this->session->get('user_data');
+        $userData['profile']['level'] = $this->session->get('user_level');
 
         return view('user/profile', ['userData' => $userData]);
     }
