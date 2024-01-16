@@ -28,8 +28,9 @@ $routes->post('/login-action', 'Authentication::login');
 $routes->get('/register', 'Authentication::registerPage');
 $routes->post('/register-action', 'Authentication::register');
 
-$routes->get('/reset-password', 'Authentication::resetPassword');
-$routes->post('/reset-password-action', 'Authentication::sendResetLink');
+//later
+// $routes->get('/reset-password', 'Authentication::resetPassword');
+// $routes->post('/reset-password-action', 'Authentication::sendResetLink');
 
 $routes->get('/logout','Authentication::logout');
 
