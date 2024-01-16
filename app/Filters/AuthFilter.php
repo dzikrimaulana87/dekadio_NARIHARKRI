@@ -12,7 +12,7 @@ class AuthFilter implements FilterInterface
     {
         //jika tidak login
         if (!session()->get('user_data')) {
-            return redirect()->to('/login');
+            return redirect()->to('login');
         }
     }
 
