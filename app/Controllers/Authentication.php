@@ -118,7 +118,7 @@ class Authentication extends BaseController
                 
                     $response = $client->post('https://identitytoolkit.googleapis.com/v1/accounts:lookup', [
                         'query' => [
-                            'key' => 'AIzaSyDmrOKGSJmipCP_E0H2u4ICOgO7KFZmFuE',
+                            'key' => '//fill this',
                         ],
                         'json' => [
                             'idToken' => $idToken,
