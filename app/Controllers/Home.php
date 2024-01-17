@@ -78,7 +78,8 @@ class Home extends BaseController
         });
 
         // Tampilkan tampilan leaderboard dengan data pengguna yang telah diurutkan
-        return view('user/leaderboard', ['users' => $users]);
+        return view('user/leaderboard', ['users' => $users,]);
+
     }
 
     protected function getUsersFromDatabase()

@@ -37,41 +37,41 @@ class Authentication extends BaseController
     }
 
     public function register()
-{
-    $validation = \Config\Services::validation();
+    {
+        $validation = \Config\Services::validation();
 
-    if ($this->request->getMethod() === 'post') {
-        $rules = [
-            'email' => 'required|valid_email|is_unique[users.email]',
-            'password' => 'required|min_length[8]',
-            'name' => 'required',
-        ];
+        if ($this->request->getMethod() === 'post') {
+            $rules = [
+                'email' => 'required|valid_email|is_unique[users.email]',
+                'password' => 'required|min_length[8]',
+                'name' => 'required',
+            ];
 
-        if (!$this->validate($rules)) {
-            return view('user/authentication/register', ['validation' => $validation]);
-        } else {
-            $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
-            $name = $this->request->getPost('name');
+            if (!$this->validate($rules)) {
+                return view('user/authentication/register', ['validation' => $validation]);
+            } else {
+                $email = $this->request->getPost('email');
+                $password = $this->request->getPost('password');
+                $name = $this->request->getPost('name');
 
-            try {
-                // Buat akun di Firebase Authentication
-                $user = $this->auth->createUserWithEmailAndPassword($email, $password);
-                $this->auth->sendEmailVerificationLink($user->email);
-                $this->addUserDataToDatabase($user->uid, $name);
+                try {
+                    // Buat akun di Firebase Authentication
+                    $user = $this->auth->createUserWithEmailAndPassword($email, $password);
+                    $this->auth->sendEmailVerificationLink($user->email);
+                    $this->addUserDataToDatabase($user->uid, $name);
 
-                return redirect()->to('login')->with('success', 'Registration successful. Please check your email for verification.');
-            } catch (\Exception $e) {
-                return view('user/authentication/register', ['validation' => $validation, 'error' => $e->getMessage()]);
+                    return redirect()->to('login')->with('success', 'Registration successful. Please check your email for verification.');
+                } catch (\Exception $e) {
+                    return view('user/authentication/register', ['validation' => $validation, 'error' => $e->getMessage()]);
+                }
             }
         }
+
+        return view('user/authentication/register');
     }
 
-    return view('user/authentication/register');
-}
 
 
-    
 
 
     protected function addUserDataToDatabase($userId, $nama)
@@ -115,48 +115,48 @@ class Authentication extends BaseController
                     $idToken = $user->idToken();
 
                     $client = new Client();
-                
+
                     $response = $client->post('https://identitytoolkit.googleapis.com/v1/accounts:lookup', [
                         'query' => [
-                            'key' => '//fill this',
+                            'key' => 'AIzaSyDmrOKGSJmipCP_E0H2u4ICOgO7KFZmFuE',
                         ],
                         'json' => [
                             'idToken' => $idToken,
                         ],
                     ]);
-                
+
                     $userData = json_decode($response->getBody(), true);
-                
+
                     // Mengecek status verifikasi email
                     $emailVerified = $userData['users'][0]['emailVerified'];
-                    if(!$emailVerified){
-                        return view('user/authentication/login', ['validation' => $validation, 'error' =>'email has not been verified']);
-                    }else{
+                    if (!$emailVerified) {
+                        return view('user/authentication/login', ['validation' => $validation, 'error' => 'email has not been verified']);
+                    } else {
 
                         $email = $user->data()['email'];
 
-                    // Ambil UID pengguna
-                    $userId = $user->data()['localId'];
-                    $reference = $this->database->getReference('users/' . $userId);
-                    $snapshot = $reference->getSnapshot();
+                        // Ambil UID pengguna
+                        $userId = $user->data()['localId'];
+                        $reference = $this->database->getReference('users/' . $userId);
+                        $snapshot = $reference->getSnapshot();
 
-                    if ($snapshot->exists()) {
-                        $userDataFromDatabase = $snapshot->getValue();
-                        $userDataFromDatabase['email'] = $email;
-                        $userDataFromDatabase['localId'] = $userId;
+                        if ($snapshot->exists()) {
+                            $userDataFromDatabase = $snapshot->getValue();
+                            $userDataFromDatabase['email'] = $email;
+                            $userDataFromDatabase['localId'] = $userId;
 
 
-                        $this->session->set('user_level', $userDataFromDatabase['profile']['level']);
-                        $this->session->set('user_data', $userDataFromDatabase);
+                            $this->session->set('user_level', $userDataFromDatabase['profile']['level']);
+                            $this->session->set('user_data', $userDataFromDatabase);
+                        }
+
+
+                        // Set sesi untuk ID token
+                        $this->session->set('user_token', $idToken);
+
+                        return redirect()->to('/');
                     }
 
-
-                    // Set sesi untuk ID token
-                    $this->session->set('user_token', $idToken);
-
-                    return redirect()->to('/');
-                    }
-                    
                 } catch (\Exception $e) {
                     return view('user/authentication/login', ['validation' => $validation, 'error' => $e->getMessage()]);
                 }

@@ -55,8 +55,13 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="d-flex justify-content-center align-items-center pb-3">
+                <div class="d-flex flex-column justify-content-center align-items-center pb-3">
                     <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="mt-3">
+                        <p>Do you don't have an account ? <a href="<?= base_url('/register'); ?>"
+                                style="color: #530FAA">Register
+                                Here</a></p>
+                    </div>
                 </div>
             </form>
         </div>
