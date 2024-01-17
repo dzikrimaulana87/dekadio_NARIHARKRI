@@ -83,16 +83,18 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
 ## Website screenshots
 1. Registration
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a04a1ee8-ec9e-4aac-8278-eeb29acca9eb)
-3. Login
+2. Login
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/07a827b4-7b90-47ec-81f3-a11e6eb0282e)
-5. Home Page
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/f96ad21e-0aeb-44d5-bad1-9f4d20187605)
-7. Course
+3. Home Page / Practice
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/79379b93-6cf9-491a-8d98-5e63c65b6609)
+5. Leaderboard
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/6a7bdf08-4a76-41cd-a83b-6246dfb70b5d)
+6. Course
    - Module
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d131b5d2-afcb-4617-95cf-51a21610fc5a)
    - Video
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/fa70a521-7d6f-4066-83fb-e503da5791e4)
-9. Quiz
+7. Quiz
  - Level Page
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/11e858d4-d6a5-4e73-b936-125ffcbbb736)
  - Quiz question
@@ -103,8 +105,6 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/eb9fb7a2-877a-4ffa-9410-ed3b576a92ec)
  - Feedback
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/974f8305-1674-4ec5-baa7-c1fa008f70b2)
-4. Video Pembelajaran
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0db43b00-12f0-46fb-a73d-f1a0d69b5caf)
 
 ## Usage
 
