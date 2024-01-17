@@ -98,20 +98,19 @@
 
         for ($i = 0; $i < count($questions); $i++) {
             echo '<div class="question" id="question_' . $i . '">';
-            echo '<p><strong>Soal ' . ($i + 1) . ':</strong> ' . $questions[$i]['question'] . '</p>';
+            echo '<p>' . $questions[$i]['question'] . '</p><br>';
 
             // Memeriksa tipe pertanyaan (teks atau gambar)
-            if (is_numeric($questions[$i]['options'][0])) {
-                // Jika opsi jawaban adalah teks
-                for ($j = 0; $j < count($questions[$i]['options']); $j++) {
+            for ($j = 0; $j < count($questions[$i]['options']); $j++) {
+                if (!preg_match('/^https/', $questions[$i]['options'][$j])) {
+                    // Jika opsi jawaban adalah teks
                     echo '<p onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">' . $questions[$i]['options'][$j] . '</p>';
-                }
-            } else {
-                // Jika opsi jawaban adalah gambar
-                for ($j = 0; $j < count($questions[$i]['options']); $j++) {
-                    echo '<img src="gs://dekadio.appspot.com/quiz/option/' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
+                } else {
+                    // Jika opsi jawaban adalah gambar
+                    echo '<img src="' . $questions[$i]['options'][$j] . '" alt="Option ' . ($j + 1) . '" class="option-image" onclick="answerSelected(' . $i . ',' . $j . ')" id="option_' . $i . '_' . $j . '">';
                 }
             }
+            
 
             echo '<div class="feedback" id="feedback_' . $i . '"></div>';
             echo '</div>';

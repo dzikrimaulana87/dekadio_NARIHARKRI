@@ -170,7 +170,7 @@
                                     </h3>
                                 </div>
                                 <div class="container-fluid h-50 d-flex justify-content-start align-items-center">
-                                    <h5 class="card-text text-white ms-2">Level:
+                                    <h5 class="card-text text-white ms-2">Level 
                                         <?= $userData['profile']['level']; ?>
                                     </h5>
                                 </div>
@@ -187,7 +187,7 @@
                             </div>
                         </div>
                         <p class="card-text">Nama:
-                            <?= $userData = ['email']; ?>
+                            <?= $userData['email']; ?>
                         </p>
                     </div>
                 <?php else: ?>

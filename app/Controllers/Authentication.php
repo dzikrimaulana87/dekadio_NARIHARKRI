@@ -116,14 +116,17 @@ class Authentication extends BaseController
 
                     $client = new Client();
 
+                    $apiKey = getenv('FIREBASE_API_KEY');
+
                     $response = $client->post('https://identitytoolkit.googleapis.com/v1/accounts:lookup', [
                         'query' => [
-                            'key' => 'AIzaSyDmrOKGSJmipCP_E0H2u4ICOgO7KFZmFuE',
+                            'key' => $apiKey,
                         ],
                         'json' => [
                             'idToken' => $idToken,
                         ],
                     ]);
+
 
                     $userData = json_decode($response->getBody(), true);
 

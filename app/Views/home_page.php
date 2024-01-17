@@ -159,11 +159,6 @@
 
                     $userLevel = $session->get('user_level');
                     ?>
-                    <div class="text-center">
-                        <h3>Level Anda:
-                            <?= $userLevel ?? 1 ?>
-                        </h3>
-                    </div>
                     <div class="d-flex gap-3">
                         <?php
                         $userLevel = 1;
