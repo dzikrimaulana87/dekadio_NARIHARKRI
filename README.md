@@ -61,9 +61,9 @@ Muhammad Rizqi Fadhilah
 
 ## Website screenshots
 1. Registration
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/ee861ac4-5dfe-44f2-aaa6-6021429bfb10)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/7d10a46b-b129-4c92-8540-8743ddfa446b)
 2. Login
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/641c985b-8962-412c-a5f6-5347b741f182)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9260f813-f9b7-490b-aabf-d5e294abc5e2)
 3. Home Page / Practice
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0ce70283-c971-418a-8779-43fcbd1d9e6f)
 4. Leaderboard
