@@ -77,11 +77,11 @@ Muhammad Rizqi Fadhilah
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/39987a05-05dc-43a1-ab9f-96d318b9db7b)
 7. Quiz
  - Quiz question
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d8e8c5da-7857-4f4d-a07e-ecb9d76dfa9c)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9544f0ec-2970-415d-9f67-355787eb2f14)
  - If the answer is correct
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9dc30590-32a4-4435-bb65-adaa1d3aeae9)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c40ab69f-e256-4601-8d4d-4b8ed3272eea)
  - If the answer is incorrect
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/235b03f7-f3a5-4c08-a2e5-a544bc74be1a)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/5e802835-a2ec-4aad-b540-792eb0139b2b)
 8. Quiz Result
    - Complete
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a762bf6c-b44d-4c1c-8899-8824f64d2a98)
