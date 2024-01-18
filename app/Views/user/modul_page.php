@@ -20,59 +20,65 @@
 
 
     <style>
-    body {
-        height: 100vh;
-        display: flex;
-    }
+        body {
+            height: 100vh;
+            display: flex;
+        }
 
-    .container {
-        width: max-content;
-        display: flex;
-        gap: 5px;
-    }
+        .container {
+            width: max-content;
+            display: flex;
+            gap: 5px;
+        }
 
-    a {
-        width: 100%;
-        justify-self: center;
-        text-decoration: none;
-    }
+        a {
+            width: 100%;
+            justify-self: center;
+            text-decoration: none;
+        }
 
-    .sidebar-text {
-        color: #666;
-    }
+        .sidebar-text {
+            color: #666;
+        }
 
-    .sidebar-text:hover {
-        color: #530FAA;
-    }
+        .sidebar-text:hover {
+            color: #530FAA;
+        }
 
-    .wrap-text {
-        border: solid #666 1px;
-        border-radius: 15px;
-    }
+        .wrap-text {
+            border: solid #666 1px;
+            border-radius: 15px;
+        }
 
-    .wrap-text:hover {
-        border: solid #530FAA 2px;
-    }
+        .wrap-text:hover {
+            border: solid #530FAA 2px;
+        }
 
-    .wrap-icon {
-        background-color: rgba(83, 15, 170, 0.2);
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-        color: #530FAA;
-    }
+        .wrap-icon {
+            background-color: rgba(83, 15, 170, 0.2);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            color: #530FAA;
+        }
 
-    .wrap-icon:hover {
-        background-color: rgba(83, 15, 170, 0.4);
-        border: solid #530FAA 2px;
-    }
+        .wrap-icon:hover {
+            background-color: rgba(83, 15, 170, 0.4);
+            border: solid #530FAA 2px;
+        }
 
-    main .misi {
-        font-size: 0.6em;
-    }
+        .img-thumbnail {
+            max-width: 70px;
+            max-height: 70px;
+        }
+
+
+        main .misi {
+            font-size: 0.6em;
+        }
     </style>
 </head>
 
@@ -166,7 +172,8 @@
                 <div class="" style="margin-left: 100px;">
                     <div class="d-flex gap-3 justify-content-center align-items-center">
                         <div class="">
-                            <img src="" alt="image" class="img-thumbnail">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/dekadio.appspot.com/o/course%2Fmodule%2FOIG.jpg?alt=media&token=e45b7b51-0c21-4c43-af15-9056ba0427b7"
+                                alt="image" class="img-thumbnail">
                         </div>
                         <div>
                             <h4>Mengenal Bahasa Isyarat</h4>
@@ -176,7 +183,8 @@
                     </div>
                     <div class="d-flex gap-3 justify-content-center align-items-center">
                         <div class="">
-                            <img src="" alt="image" class="img-thumbnail">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/dekadio.appspot.com/o/course%2Fmodule%2FOIG.jpg?alt=media&token=e45b7b51-0c21-4c43-af15-9056ba0427b7"
+                                alt="image" class="img-thumbnail">
                         </div>
                         <div>
                             <h4>Mengenal Bahasa Isyarat</h4>
@@ -186,7 +194,8 @@
                     </div>
                     <div class="d-flex gap-3 justify-content-center align-items-center">
                         <div class="">
-                            <img src="" alt="image" class="img-thumbnail">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/dekadio.appspot.com/o/course%2Fmodule%2FOIG.jpg?alt=media&token=e45b7b51-0c21-4c43-af15-9056ba0427b7"
+                                alt="image" class="img-thumbnail">
                         </div>
                         <div>
                             <h4>Mengenal Bahasa Isyarat</h4>
@@ -196,7 +205,8 @@
                     </div>
                     <div class="d-flex gap-3 justify-content-center align-items-center">
                         <div class="">
-                            <img src="" alt="image" class="img-thumbnail">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/dekadio.appspot.com/o/course%2Fmodule%2FOIG.jpg?alt=media&token=e45b7b51-0c21-4c43-af15-9056ba0427b7"
+                                alt="image" class="img-thumbnail">
                         </div>
                         <div>
                             <h4>Mengenal Bahasa Isyarat</h4>
@@ -218,9 +228,9 @@
     </div>
 
     <!-- Connect to js bootstrap   -->
-    <script src="https://cdn.jsdelivr.net/npm/boothstrap@5.3.2/dist/pjs/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/pjs/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

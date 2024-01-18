@@ -24,21 +24,6 @@ Muhammad Hanif
 Hustler<br>
 Muhammad Rizqi Fadhilah
 
-# Configuration <br>
-
-please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.json** file with your own firebase configuration
-
-*json for firebase realtime database:*
-
-[JSON](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/blob/main/dekadio-default-rtdb-export%20(1).json)
-
-
-:warning: *Warning*
-
-**Attention**: For the time being, the only feature available is the *quiz* feature. User authentication is not yet implemented, and developers currently still use cache/session for session management. Please note that this is a development version and some features may not be fully functional yet.
-
-**Important Note**: All questions have not been implemented in real-time. The correct answer for each question is always the first option.
-
 ## System Requirements
 
 - PHP 7.2.5 or newer
@@ -66,25 +51,19 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
     composer install
     ```
 
-4. Copy the `.env` file:
-
-    ```bash
-    cp env.example .env
-    ```
-
-5. Serve the application:
+4. Serve the application:
 
     ```bash
     php spark serve
     ```
 
-6. Visit `http://localhost:8080` in your browser to access Dekadio.
+5. Visit `http://localhost:8080` in your browser to access Dekadio.
 
 ## Website screenshots
 1. Registration
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/ee861ac4-5dfe-44f2-aaa6-6021429bfb10)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/7d10a46b-b129-4c92-8540-8743ddfa446b)
 2. Login
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/641c985b-8962-412c-a5f6-5347b741f182)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9260f813-f9b7-490b-aabf-d5e294abc5e2)
 3. Home Page / Practice
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0ce70283-c971-418a-8779-43fcbd1d9e6f)
 4. Leaderboard
@@ -98,11 +77,11 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/39987a05-05dc-43a1-ab9f-96d318b9db7b)
 7. Quiz
  - Quiz question
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d8e8c5da-7857-4f4d-a07e-ecb9d76dfa9c)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9544f0ec-2970-415d-9f67-355787eb2f14)
  - If the answer is correct
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9dc30590-32a4-4435-bb65-adaa1d3aeae9)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c40ab69f-e256-4601-8d4d-4b8ed3272eea)
  - If the answer is incorrect
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/235b03f7-f3a5-4c08-a2e5-a544bc74be1a)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/5e802835-a2ec-4aad-b540-792eb0139b2b)
 8. Quiz Result
    - Complete
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a762bf6c-b44d-4c1c-8899-8824f64d2a98)

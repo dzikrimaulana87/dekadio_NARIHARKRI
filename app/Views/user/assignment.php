@@ -75,7 +75,7 @@
                 <?= $score . '%' ?>
             </p>
             <?php else: ?>
-            <p>Kamu tidak sukses menyelesaikan level ini dengan minimun score 80%. Silakan coba lagi.
+            <p>Kamu belum sukses menyelesaikan level ini dengan minimun score 80%. Silakan coba lagi.
             </p>
             <?php endif; ?>
         </div>

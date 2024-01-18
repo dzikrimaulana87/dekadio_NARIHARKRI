@@ -87,10 +87,13 @@
 <body>
     <div class="container">
 
+<<<<<<< HEAD
         <h2 class="mb-5" style="color: #530FAA;">Level
             <?= $level ?>
         </h2>
 
+=======
+>>>>>>> 7df252dd2470e26f588d856351cc58b00846ccf2
         <?php
         $score = 0;
 
