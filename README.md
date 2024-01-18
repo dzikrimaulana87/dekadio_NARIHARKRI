@@ -24,21 +24,6 @@ Muhammad Hanif
 Hustler<br>
 Muhammad Rizqi Fadhilah
 
-# Configuration <br>
-
-please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.json** file with your own firebase configuration
-
-*json for firebase realtime database:*
-
-[JSON](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/blob/main/dekadio-default-rtdb-export%20(1).json)
-
-
-:warning: *Warning*
-
-**Attention**: For the time being, the only feature available is the *quiz* feature. User authentication is not yet implemented, and developers currently still use cache/session for session management. Please note that this is a development version and some features may not be fully functional yet.
-
-**Important Note**: All questions have not been implemented in real-time. The correct answer for each question is always the first option.
-
 ## System Requirements
 
 - PHP 7.2.5 or newer
@@ -66,19 +51,13 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
     composer install
     ```
 
-4. Copy the `.env` file:
-
-    ```bash
-    cp env.example .env
-    ```
-
-5. Serve the application:
+4. Serve the application:
 
     ```bash
     php spark serve
     ```
 
-6. Visit `http://localhost:8080` in your browser to access Dekadio.
+5. Visit `http://localhost:8080` in your browser to access Dekadio.
 
 ## Website screenshots
 1. Registration
