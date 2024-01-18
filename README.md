@@ -70,11 +70,11 @@ Muhammad Rizqi Fadhilah
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9c217eb3-109e-412a-95fe-9133725dabdd)
 5. Course
    - Module
-     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c6e88d8e-4acb-4461-bf49-2f404c3fb004)
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/dc14cd83-4cfb-4af2-ae3d-9371574ba02b)
    - Video
-     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/22545c8e-ad27-4781-8992-9acc0f6d95aa)
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/43784b0c-735f-4fb8-9ac8-a4bea21491c5)
 6. Profile
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/39987a05-05dc-43a1-ab9f-96d318b9db7b)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/bccd7854-7213-4b5b-b324-33b6d060bcc9)
 7. Quiz
  - Quiz question
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9544f0ec-2970-415d-9f67-355787eb2f14)
