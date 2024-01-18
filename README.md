@@ -82,20 +82,20 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
 
 ## Website screenshots
 1. Registration
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a04a1ee8-ec9e-4aac-8278-eeb29acca9eb)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/ee861ac4-5dfe-44f2-aaa6-6021429bfb10)
 2. Login
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/07a827b4-7b90-47ec-81f3-a11e6eb0282e)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/641c985b-8962-412c-a5f6-5347b741f182)
 3. Home Page / Practice
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/12c41c24-e0b3-4eeb-977b-43d41f9d6984)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0ce70283-c971-418a-8779-43fcbd1d9e6f)
 4. Leaderboard
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/6a7bdf08-4a76-41cd-a83b-6246dfb70b5d)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9c217eb3-109e-412a-95fe-9133725dabdd)
 5. Course
    - Module
-     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d131b5d2-afcb-4617-95cf-51a21610fc5a)
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c6e88d8e-4acb-4461-bf49-2f404c3fb004)
    - Video
-     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/fa70a521-7d6f-4066-83fb-e503da5791e4)
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/22545c8e-ad27-4781-8992-9acc0f6d95aa)
 6. Profile
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0d96eb05-9b59-428c-a11d-2ceb78bfeba6)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/39987a05-05dc-43a1-ab9f-96d318b9db7b)
 7. Quiz
  - Quiz question
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d8e8c5da-7857-4f4d-a07e-ecb9d76dfa9c)
@@ -103,8 +103,11 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9dc30590-32a4-4435-bb65-adaa1d3aeae9)
  - If the answer is incorrect
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/235b03f7-f3a5-4c08-a2e5-a544bc74be1a)
- - Result
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/14bd45ab-4e01-4cb6-a48c-42636bfcd989)
+8. Quiz Result
+   - Complete
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a762bf6c-b44d-4c1c-8899-8824f64d2a98)
+   - Failed
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d2290c54-d56e-4d2c-8d31-2849603dd509)
 
 ## Usage
 
