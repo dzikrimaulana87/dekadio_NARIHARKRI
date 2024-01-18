@@ -94,17 +94,17 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d131b5d2-afcb-4617-95cf-51a21610fc5a)
    - Video
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/fa70a521-7d6f-4066-83fb-e503da5791e4)
-7. Quiz
- - Level Page
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/11e858d4-d6a5-4e73-b936-125ffcbbb736)
+7. Profile
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0d96eb05-9b59-428c-a11d-2ceb78bfeba6)
+9. Quiz
  - Quiz question
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/c2e8f40c-6e3d-40b9-8464-585f461a58da)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d8e8c5da-7857-4f4d-a07e-ecb9d76dfa9c)
  - If the answer is correct
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/b2488fb5-ddb3-48d4-92e6-b150673e6c31)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9dc30590-32a4-4435-bb65-adaa1d3aeae9)
  - If the answer is incorrect
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/eb9fb7a2-877a-4ffa-9410-ed3b576a92ec)
- - Feedback
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/974f8305-1674-4ec5-baa7-c1fa008f70b2)
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/235b03f7-f3a5-4c08-a2e5-a544bc74be1a)
+ - Result
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/14bd45ab-4e01-4cb6-a48c-42636bfcd989)
 
 ## Usage
 
