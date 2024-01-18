@@ -42,7 +42,7 @@ class Authentication extends BaseController
 
         if ($this->request->getMethod() === 'post') {
             $rules = [
-                'email' => 'required|valid_email|is_unique[users.email]',
+                'email' => 'required|valid_email',
                 'password' => 'required|min_length[8]',
                 'name' => 'required',
             ];

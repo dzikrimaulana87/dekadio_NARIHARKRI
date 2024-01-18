@@ -85,10 +85,6 @@
 
     <div class="container">
 
-        <h2>Ini adalah level
-            <?= $level ?>
-        </h2>
-
         <?php
         $score = 0;
 
