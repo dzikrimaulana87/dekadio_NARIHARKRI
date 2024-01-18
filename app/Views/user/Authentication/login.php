@@ -15,30 +15,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
-    body {
-        background-image: url('/img/loginBg.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+        body {
+            background-image: url('/img/loginBg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 
 <body>
     <div class="w-50 d-flex align-items-center" style="height: 100vh; padding-right: 30px;">
-        <div class="container-fluid w-50 rounded bg-white">
+        <div class="container-fluid w-50 rounded">
             <h2 class="text-center pt-1 mb-5" style="color: #530faa; font-family: 'Press Start 2P', system-ui;">dekadio.
             </h2>
 
             <?php if (isset($success)): ?>
-            <div class="alert alert-success">
-                <?= $success; ?>
-            </div>
+                <div class="alert alert-success">
+                    <?= $success; ?>
+                </div>
             <?php endif; ?>
 
             <?php if (isset($error)): ?>
-            <div class="alert alert-danger">
-                <?= $error; ?>
-            </div>
+                <div class="alert alert-danger">
+                    <?= $error; ?>
+                </div>
             <?php endif; ?>
 
             <form action="<?= base_url('/login-action'); ?>" method="post">
@@ -48,9 +48,9 @@
                         value="<?= (isset($validation) ? old('email') : ''); ?>" required>
                     <!-- Tampilkan pesan kesalahan jika ada -->
                     <?php if (isset($validation) && $validation->hasError('email')): ?>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('email'); ?>
-                    </div>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('email'); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
 
@@ -62,9 +62,9 @@
                     <a href="" class="text-secondary">Forgot Password?</a>
                     <!-- Tampilkan pesan kesalaan jika ada -->
                     <?php if (isset($validation) && $validation->hasError('password')): ?>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('password'); ?>
-                    </div>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('password'); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center pb-3">

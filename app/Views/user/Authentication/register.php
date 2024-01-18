@@ -13,19 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
-    body {
-        background-image: url('/img/registBg.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: end;
-    }
+        body {
+            background-image: url('/img/registBg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: end;
+        }
     </style>
 </head>
 
 <body>
     <div class="w-50 d-flex align-items-center" style="height: 100vh; padding-right: 30px;">
-        <div class="container-fluid w-50 bg-white rounded">
+        <div class="container-fluid w-50 rounded">
             <h2 class="text-center pt-1 mb-5" style="color: #530faa; font-family: 'Press Start 2P', system-ui;">dekadio.
             </h2>
 
@@ -43,9 +43,9 @@
                         value="<?= (isset($validation) ? old('email') : ''); ?>" required>
                     <!-- Tampilkan pesan kesalahan jika ada -->
                     <?php if (isset($validation) && $validation->hasError('email')): ?>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('email'); ?>
-                    </div>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('email'); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
 
@@ -55,9 +55,9 @@
                         required>
                     <!-- Tampilkan pesan kesalahan jika ada -->
                     <?php if (isset($validation) && $validation->hasError('password')): ?>
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('password'); ?>
-                    </div>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('password'); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
 
