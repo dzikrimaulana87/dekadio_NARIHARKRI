@@ -86,17 +86,17 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
 2. Login
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/07a827b4-7b90-47ec-81f3-a11e6eb0282e)
 3. Home Page / Practice
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/79379b93-6cf9-491a-8d98-5e63c65b6609)
-5. Leaderboard
+   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/12c41c24-e0b3-4eeb-977b-43d41f9d6984)
+4. Leaderboard
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/6a7bdf08-4a76-41cd-a83b-6246dfb70b5d)
-6. Course
+5. Course
    - Module
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d131b5d2-afcb-4617-95cf-51a21610fc5a)
    - Video
      ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/fa70a521-7d6f-4066-83fb-e503da5791e4)
-7. Profile
+6. Profile
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/0d96eb05-9b59-428c-a11d-2ceb78bfeba6)
-9. Quiz
+7. Quiz
  - Quiz question
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d8e8c5da-7857-4f4d-a07e-ecb9d76dfa9c)
  - If the answer is correct
