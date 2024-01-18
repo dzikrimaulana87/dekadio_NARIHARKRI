@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <!-- Tambahkan link ke Bootstrap CSS di sini -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- Connect to bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Connect to font awesome -->
@@ -71,6 +69,11 @@
         main .misi {
             font-size: 0.6em;
         }
+
+        .wrap-fav:hover {
+            border: solid #530FAA 2px;
+            border-radius: 15px;
+        }
     </style>
 </head>
 
@@ -78,7 +81,7 @@
     <div class="sidebar container-fluid d-flex flex-column align-items-center border-end border-secondary w-25 pt-3">
         <h1 style="color: #530FAA;">dekadio.</h1>
         <div class="w-100">
-            <a href="<?= base_url('/level-page'); ?>" class="sidebar-text">
+            <a href="<?= base_url('/'); ?>" class="sidebar-text">
                 <div class="d-flex align-items-center wrap-text text-center mt-5 mb-3">
                     <span class="material-symbols-outlined w-25" style="color: tomato;">
                         sports_esports
@@ -170,25 +173,63 @@
                                     </h3>
                                 </div>
                                 <div class="container-fluid h-50 d-flex justify-content-start align-items-center">
-                                    <h5 class="card-text text-white ms-2">Level 
+                                    <h5 class="card-text text-white ms-2">Level
                                         <?= $userData['profile']['level']; ?>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                         <div class="">
-                            <div class="bg-info mt-3">
+                            <div class="mt-3">
                                 <h2>Profile</h2>
-                                <a href="">
-                                    <div class="">
-                                        <p>Favorite</p>
+                                <a href="" class="text-decoration-none" style="color: black;">
+                                    <div class="wrap-fav d-flex align-items-center m-4">
+                                        <span class="material-symbols-outlined">
+                                            bookmark
+                                        </span>
+                                        <div class="ms-3 pt-1 w-75">
+                                            <h5>Favorite</h5>
+                                        </div>
+                                        <span class="material-symbols-outlined w-25 d-flex justify-content-end">
+                                            arrow_forward_ios
+                                        </span>
                                     </div>
                                 </a>
                             </div>
+                            <div class="mt-3">
+                                <h2>Account</h2>
+                                <div class="d-flex align-items-center m-4">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <div class="ms-3 pt-1 w-75">
+                                        <h5>
+                                            <?= $userData['email']; ?>
+                                        </h5>
+                                    </div>
+                                    <a href="" class="w-25 d-flex justify-content-end" style="color: black;">
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="d-flex align-items-center m-4">
+                                    <span class="material-symbols-outlined">
+                                        lock
+                                    </span>
+                                    <div class="ms-3 pt-1 w-75">
+                                        <h5>
+                                            Password
+                                        </h5>
+                                    </div>
+                                    <a href="" class="w-25 d-flex justify-content-end" style="color: black;">
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <p class="card-text">Nama:
-                            <?= $userData['email']; ?>
-                        </p>
                     </div>
                 <?php else: ?>
                     <p>Data pengguna tidak ditemukan.</p>

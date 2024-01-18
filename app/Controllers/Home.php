@@ -32,7 +32,10 @@ class Home extends BaseController
 
     public function index(): string
     {
-        return view('home_page');
+        $userData = $this->session->get('user_data');
+        $userData['profile']['level'] = $this->session->get('user_level');
+
+        return view('home_page', ['userData' => $userData]);
     }
 
     // ...
