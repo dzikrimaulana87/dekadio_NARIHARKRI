@@ -103,8 +103,11 @@ please replace the **App/Controller/dekadio-firebase-adminsdk-env38-e696477d86.j
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/9dc30590-32a4-4435-bb65-adaa1d3aeae9)
  - If the answer is incorrect
    ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/235b03f7-f3a5-4c08-a2e5-a544bc74be1a)
- - Result
-   ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/14bd45ab-4e01-4cb6-a48c-42636bfcd989)
+8. Quiz Result
+   - Complete
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/a762bf6c-b44d-4c1c-8899-8824f64d2a98)
+   - Failed
+     ![image](https://github.com/dzikrimaulana87/dekadio_NARIHARKRI/assets/107752721/d2290c54-d56e-4d2c-8d31-2849603dd509)
 
 ## Usage
 
