@@ -12,6 +12,10 @@
     <!-- Connect to font awesome -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Font dekadio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -72,7 +76,7 @@
 
 <body>
     <div class="sidebar container-fluid d-flex flex-column align-items-center border-end border-secondary w-25 pt-3">
-        <h1 style="color: #530FAA;">dekadio.</h1>
+        <h3 class="m-3" style="color: #530FAA; font-family: 'Press Start 2P', system-ui;">dekadio.</h3>
         <div class="w-100">
             <a href="<?= base_url('/'); ?>" class="sidebar-text">
                 <div class="d-flex align-items-center wrap-text text-center mt-5 mb-3">

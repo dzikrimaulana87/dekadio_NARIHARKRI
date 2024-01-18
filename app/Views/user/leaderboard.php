@@ -14,67 +14,71 @@
     <!-- Connect to font awesome -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Font dekadio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            height: 100vh;
-            display: flex;
-        }
+    body {
+        height: 100vh;
+        display: flex;
+    }
 
-        .container {
-            width: max-content;
-            display: flex;
-            gap: 5px;
-        }
+    .container {
+        width: max-content;
+        display: flex;
+        gap: 5px;
+    }
 
-        a {
-            width: 100%;
-            justify-self: center;
-            text-decoration: none;
-        }
+    a {
+        width: 100%;
+        justify-self: center;
+        text-decoration: none;
+    }
 
-        .sidebar-text {
-            color: #666;
-        }
+    .sidebar-text {
+        color: #666;
+    }
 
-        .sidebar-text:hover {
-            color: #530FAA;
-        }
+    .sidebar-text:hover {
+        color: #530FAA;
+    }
 
-        .wrap-text {
-            border: solid #666 1px;
-            border-radius: 15px;
-        }
+    .wrap-text {
+        border: solid #666 1px;
+        border-radius: 15px;
+    }
 
-        .wrap-text:hover {
-            border: solid #530FAA 2px;
-        }
+    .wrap-text:hover {
+        border: solid #530FAA 2px;
+    }
 
-        .wrap-icon {
-            background-color: rgba(83, 15, 170, 0.2);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            color: #530FAA;
-        }
+    .wrap-icon {
+        background-color: rgba(83, 15, 170, 0.2);
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        color: #530FAA;
+    }
 
-        .wrap-icon:hover {
-            background-color: rgba(83, 15, 170, 0.4);
-            border: solid #530FAA 2px;
-        }
+    .wrap-icon:hover {
+        background-color: rgba(83, 15, 170, 0.4);
+        border: solid #530FAA 2px;
+    }
 
-        main .misi {
-            font-size: 0.6em;
-        }
+    main .misi {
+        font-size: 0.6em;
+    }
     </style>
 </head>
 
 <body>
     <div class="sidebar container-fluid d-flex flex-column align-items-center border-end border-secondary w-25 pt-3">
-        <h1 style="color: #530FAA;">dekadio.</h1>
+        <h3 class="m-3" style="color: #530FAA; font-family: 'Press Start 2P', system-ui;">dekadio.</h3>
         <div class="w-100">
             <a href="<?= base_url('/'); ?>" class="sidebar-text">
                 <div class="d-flex align-items-center wrap-text text-center mt-5 mb-3">
@@ -162,41 +166,41 @@
                 <table class="table">
                     <tbody>
                         <?php foreach ($users as $key => $user): ?>
-                            <tr>
-                                <td class="d-flex align-items-center">
-                                    <?php if ($key == 0): ?>
-                                        <span class="material-symbols-outlined" style="color: yellow; font-size: 35px;">
-                                            trophy
-                                        </span>
-                                    <?php endif; ?>
-                                    <?php if ($key == 1): ?>
-                                        <span class="material-symbols-outlined" style="color: #C0C0C0; font-size: 35px;">
-                                            trophy
-                                        </span>
-                                    <?php endif; ?>
-                                    <?php if ($key == 2): ?>
-                                        <span class="material-symbols-outlined" style="color: #8B4513; font-size: 35px;">
-                                            trophy
-                                        </span>
-                                    <?php endif; ?>
-                                    <?php if ($key > 2): ?>
-                                        <h4>
-                                            <?= $key + 1; ?>
-                                        </h4>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?= $user['full_name']; ?>
-                                </td>
-                                <td class="d-flex justify-content-center align-items-center">
-                                    <span class="material-symbols-outlined" style="color: blue;">
-                                        military_tech
-                                    </span>
-                                    <h6>
-                                        <?= $user['level']; ?>
-                                    </h6>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="d-flex align-items-center">
+                                <?php if ($key == 0): ?>
+                                <span class="material-symbols-outlined" style="color: yellow; font-size: 35px;">
+                                    trophy
+                                </span>
+                                <?php endif; ?>
+                                <?php if ($key == 1): ?>
+                                <span class="material-symbols-outlined" style="color: #C0C0C0; font-size: 35px;">
+                                    trophy
+                                </span>
+                                <?php endif; ?>
+                                <?php if ($key == 2): ?>
+                                <span class="material-symbols-outlined" style="color: #8B4513; font-size: 35px;">
+                                    trophy
+                                </span>
+                                <?php endif; ?>
+                                <?php if ($key > 2): ?>
+                                <h4>
+                                    <?= $key + 1; ?>
+                                </h4>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?= $user['full_name']; ?>
+                            </td>
+                            <td class="d-flex justify-content-center align-items-center">
+                                <span class="material-symbols-outlined" style="color: blue;">
+                                    military_tech
+                                </span>
+                                <h6>
+                                    <?= $user['level']; ?>
+                                </h6>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -216,13 +220,13 @@
                     </div>
                     <div class="h-75 d-flex align-items-center">
                         <?php if (isset($userData)): ?>
-                            <p class="ms-2">
-                                <?= $userData['profile']['full_name']; ?>
-                            </p>
+                        <p class="ms-2">
+                            <?= $userData['profile']['full_name']; ?>
+                        </p>
                         <?php else: ?>
-                            <p class="ms-2">
-                                Data pengguna tidak ditemukan!
-                            </p>
+                        <p class="ms-2">
+                            Data pengguna tidak ditemukan!
+                        </p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -236,7 +240,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/pjs/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>
